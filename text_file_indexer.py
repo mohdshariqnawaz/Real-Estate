@@ -76,7 +76,7 @@ def index_text_file(txt_filename, idx_filename,
     # debug1("word_keys", word_keys)
 
     # Sort the words in the word_keys list.
-    sorted(word_keys)
+
     # debug1("after sort, word_keys", word_keys)
 
     # Create the index file.
@@ -86,7 +86,8 @@ def index_text_file(txt_filename, idx_filename,
     # Since we read the text file sequentially, there is no need
     # to sort the line numbers associated with each word; they are
     # already in sorted order.
-    for word in word_keys:
+
+    for word in sorted(word_keys):
         line_nums = word_occurrences[word]
         idx_fil.write(word + " ")
         for line_num in line_nums:
@@ -110,9 +111,10 @@ def main():
     # if len(sys.argv) != 3:
     #     usage(sys.argv)
     #     sys.exit(1)
-    index_text_file("hello.txt", "index.txt")
+    index_text_file("estatedetails.txt", "index.txt")
 
 if __name__ == "__main__":
     main()
 
 # EOF
+#form dictionary of dictionaries - 12th april 2018

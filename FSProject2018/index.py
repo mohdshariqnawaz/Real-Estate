@@ -1,21 +1,21 @@
 import os
-import pandas 
+import pandas
 import sys
 
 data=[]
 word_list=[]
 class estateDetails:
 	estateName =""
-	estateAddress ="" 
+	estateAddress =""
 	estateSize =""
 	estatePrice =""
 	estateOwner =""
-	estateCondition ="" 
+	estateCondition =""
 
 	def getdata( self):
 		print("Enter the estate name")
 		estateName= input()
-		print("Enter the estate address")                                               
+		print("Enter the estate address")
 		estateAddress = input()
 		print("Enter the estate size")
 		estateSize = input()
@@ -45,10 +45,10 @@ if __name__== "__main__":
 			text_file= open("estatedetails.txt","a")
 			for i in range (1, 7):
 			    print("Please enter data: ")
-			    line = input("\n") 
+			    line = input("\n")
 			    word_list.append(line + "|")
 			word_list.append("\n")
-			text_file.writelines(word_list) 
+			text_file.writelines(word_list)
 			text_file.close()
 
 		elif(choice=="2"):
@@ -68,9 +68,9 @@ if __name__== "__main__":
 				print("enter the modified estate details\nestateName\nestateAddress\nestateSize\nestatePrice\nestateOwner\nestateCondition\n")
 				for i in range (1, 7):
 				    print("Please enter data: ")
-				    line = input("\n") 
+				    line = input("\n")
 				    word_list.append(line + "|")
-				
+
 				modify_file = open("estatedetails.txt","r")
 				searchParam.replace(searchParam,modify_file.writelines(word_list))
 				modify_file.close()
@@ -85,6 +85,3 @@ if __name__== "__main__":
 
   #estateObj.getdata()
   #estateObj.putdata()
-
-
-
