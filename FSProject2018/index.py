@@ -1,21 +1,22 @@
 import os
-import pandas 
+import pandas
 import sys
+from text_file_indexer_demo import index_text_file
 
 data=[]
 word_list=[]
 class estateDetails:
 	estateName =""
-	estateAddress ="" 
+	estateAddress =""
 	estateSize =""
 	estatePrice =""
 	estateOwner =""
-	estateCondition ="" 
+	estateCondition =""
 
 	def getdata( self):
 		print("Enter the estate name")
 		estateName= input()
-		print("Enter the estate address")                                               
+		print("Enter the estate address")
 		estateAddress = input()
 		print("Enter the estate size")
 		estateSize = input()
@@ -45,32 +46,26 @@ if __name__== "__main__":
 			text_file= open("estatedetails.txt","a")
 			for i in range (1, 7):
 			    print("Please enter data: ")
-			    line = input("\n") 
+			    line = input("\n")
 			    word_list.append(line + "|")
+
 			word_list.append("\n")
-			text_file.writelines(word_list) 
+			text_file.writelines(word_list)
+			word_list = []
 			text_file.close()
 
 		elif(choice=="2"):
 			print("Searching...")
-			print("Enter the Name of the estate to be searched")
-			searchParam = input("\n")
-			search_file = open("estatedetails.txt","r")
-			for estates in search_file:
-				if searchParam in estates:
-					print("Estate Found!!!")
-					print(estates)
-			search_file.close()
-
+			index_text_file("estatedetails.txt", "index2.txt")
 			print("Do you wish to modify??\n Press Y or N Please...")
 			ch=input()
-			if ch=='Y':
-				print("enter the modified estate details\nestateName\nestateAddress\nestateSize\nestatePrice\nestateOwner\nestateCondition\n")
+			if ch=='Y' or 'y':
+				print("Enter the modified estate details\nestateName\nestateAddress\nestateSize\nestatePrice\nestateOwner\nestateCondition\n")
 				for i in range (1, 7):
 				    print("Please enter data: ")
-				    line = input("\n") 
+				    line = input("\n")
 				    word_list.append(line + "|")
-				
+				searchParam = word_list
 				modify_file = open("estatedetails.txt","r")
 				searchParam.replace(searchParam,modify_file.writelines(word_list))
 				modify_file.close()
@@ -85,6 +80,3 @@ if __name__== "__main__":
 
   #estateObj.getdata()
   #estateObj.putdata()
-
-
-
